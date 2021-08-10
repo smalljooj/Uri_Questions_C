@@ -3,38 +3,23 @@
 /*
   Essa fiz questao de fazer com ifs, pra dar uma exercitada leve.
 */
-
-
 int main() {
  
     float a, b, c, d;             /*variaveis necessarias, a b c para lados, d para auxiliar na troca*/
     scanf("%f%f%f", &a,&b,&c);    /*ler e atribui valor as variaveis*/
 
-    if(a<b){                       /*deixa os valores em ordem decrescente*/
-        d = a;
-        a = b;
-        b = d;
-        if(b<c){
-            d = b;
-            b = c;
-            c = d;
-        }
-        if(a<b){
-            d = a;
-            a = b;
-            b = d;
-        }
-    }else if(a<c){
-        d = a;
-        a = c;
-        c = d;
+    if(a<b){                 /*deixa os valores em ordem decrescente*/
+        d = b;
+        b = a;
+        a = d;
+    }if(b<c){
         d = c;
         c = b;
         b = d;
-    }else if(b<c){
-        d = c;
-        c = b;
-        b = d;
+    }if(a<b){
+        d = b;
+        b = a;
+        a = d;
     }
     
     if(a>=(b+c))                                /*verifica se existe triangulo*/
