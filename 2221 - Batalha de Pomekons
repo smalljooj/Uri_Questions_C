@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+ 
+    int n, bonus, atk_d, def_d, lv_d, atk_g, def_g, lv_g;
+    double atk_value_d, atk_value_g;
+    scanf("%d", &n);
+    
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%d%d%d%d%d%d%d", &bonus, &atk_d, &def_d, &lv_d, &atk_g, &def_g, &lv_g);
+        atk_value_d = (atk_d + def_d) / 2 + (lv_d % 2 == 0? bonus : 0);
+        atk_value_g = (atk_g + def_g) / 2 + (lv_g % 2 == 0? bonus : 0);
+        
+        if(atk_value_d > atk_value_g)
+            printf("Dabriel\n");
+        else if (atk_value_d < atk_value_g)
+            printf("Guarte\n");
+        else
+            printf("Empate\n");
+    }
+    return 0;
+}
