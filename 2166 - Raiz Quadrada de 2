@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+double square_root_2(int n)
+{
+    if(n == 0)
+        return 1;
+    double result = 2;
+    for(int i = 0; i < n - 1; i++)
+    {
+        result = 2 + 1.0/result;
+    }
+    return 1 + 1.0/result;
+}
+
+int main()
+{
+    int a;
+    scanf("%i", &a);
+    printf("%.10f\n", square_root_2(a));
+
+    return 0;
+}
