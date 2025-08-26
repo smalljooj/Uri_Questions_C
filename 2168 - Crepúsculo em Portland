@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n, **arr, cam_num;
+
+    scanf("%i", &n);
+    
+    arr = malloc((n + 1) * sizeof(int *));
+    for (int i = 0; i < (n + 1); i++) {
+        arr[i] = malloc((n + 1) * sizeof(int));
+    }
+    
+    for(int i = 0; i < (n + 1); i++)
+        for(int j = 0; j < (n + 1); j++)
+            scanf("%d", &arr[i][j]);
+            
+    for(int l = 0; l < n; l++)
+    {
+       for(int k = 0; k < n; k++)
+        {
+            for(int i = 0; i < 2; i++)
+            {
+                for(int j = 0; j < 2; j++)
+                {   
+                    if(arr[i + l][j + k] == 1)
+                        cam_num++;
+                }
+            }
+            if(cam_num > 1)
+                printf("S");
+            else
+                printf("U");
+            cam_num = 0;
+        } 
+        printf("\n");
+    }
+    return 0;
+}
