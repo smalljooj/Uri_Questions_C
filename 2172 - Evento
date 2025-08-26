@@ -1,0 +1,16 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    long x, m;
+    
+    while(1)
+    {
+        scanf("%ld%ld", &x, &m);
+        if(x == 0 && m == 0)
+            break;
+        printf("%ld\n", x * m);
+    }
+ 
+    return 0;
+}
