@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+
+int valley_peak(int n, int*vp)
+{
+    if(n < 3)
+    {
+        if(vp[0] == vp[1])
+            return 0;
+    }
+    for(int i = 1; i < n - 1; i++)
+    {
+        if(!( 
+            (vp[i] < vp[i+1] && vp[i] < vp[i - 1]) || 
+            (vp[i] > vp[i+1] && vp[i] > vp[i - 1]) 
+            ))
+            return 0;
+    }
+    return 1;
+}
+
+int main()
+{
+    int n;
+    int array[100];
+
+    scanf("%i", &n);
+    
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%i", &array[i]);
+    }
+    printf("%d\n", valley_peak(n, array));
+
+    return 0;
+}
