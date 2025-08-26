@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, rpm, last_rpm = -1, is_found = 0, index = 0;
+    
+    scanf("%d", &n);
+    scanf("%d", &last_rpm);
+    for(int i = 0; i < n - 1; i++)
+    {
+        scanf("%d", &rpm);
+        if(rpm < last_rpm && !is_found)
+        {
+            index = i + 2;
+            is_found = 1;
+        }
+        last_rpm = rpm;
+    }
+    
+    printf("%d\n", index);
+
+    return 0;
+}
