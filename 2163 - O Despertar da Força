@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void find_light_saber(int x, int y, int**arr, int*x2, int*y2)
+{
+    *x2 = 0;
+    *y2 = 0;
+    for(int i = 1; i < x-1; i++)
+    {
+        for(int j = 1; j < y-1; j++)
+        {
+            if(arr[i][j] == 42)
+            {
+                if( arr[i-1][j-1] == 7 &&
+                    arr[i-1][j] == 7 &&
+                    arr[i-1][j+1] == 7 &&
+                    arr[i][j-1] == 7 &&
+                    arr[i][j+1] == 7 &&
+                    arr[i+1][j-1] == 7 &&
+                    arr[i+1][j] == 7 &&
+                    arr[i+1][j+1] == 7 
+                )
+                {
+                    
+                    *x2 = i+1;
+                    *y2 = j+1;
+                    return;
+                }
+            }
+        }
+    }
+}
+
+int main()
+{
+    int x, y, **arr, x2, y2;
+
+    scanf("%i%i", &x, &y);
+    
+    arr = malloc(x * sizeof(int *));
+    for (int i = 0; i < x; i++) {
+        arr[i] = malloc(y * sizeof(int));
+    }
+    
+    for(int i = 0; i < x; i++)
+    {
+        for(int j = 0; j < y; j++)
+        {
+            scanf("%d", &arr[i][j]);    
+        }
+    }
+    
+    find_light_saber(x, y, arr, &x2, &y2);
+
+    printf("%d %d\n", x2, y2);
+    free(arr);
+    return 0;
+}
